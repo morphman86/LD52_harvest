@@ -13,7 +13,7 @@ public class Gene : MonoBehaviour
 
     public string getName()
     {
-        return name;
+        return geneName;
     }
 
     public Sprite getSprite()
