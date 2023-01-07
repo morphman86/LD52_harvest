@@ -236,18 +236,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfbbf4815553a94996fc50f04843ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stemSprites:
-  - {fileID: 21300000, guid: 03fe1643bede58442b8a88a5a04d6e52, type: 3}
-  - {fileID: 21300000, guid: 971fd344f1ecd104f92da387e2c15493, type: 3}
-  - {fileID: 21300000, guid: 6497263b896cfae47bca865def0cb9e3, type: 3}
-  - {fileID: 21300000, guid: f14afefbd2a23c746b1a5748ca77c7bf, type: 3}
-  leafSprites:
-  - {fileID: 21300000, guid: 24a668c1414e97e4c8a444512aa8fe5d, type: 3}
-  - {fileID: 21300000, guid: e04beb58fe183964c91779c10c80373d, type: 3}
-  flowerSprites:
-  - {fileID: 21300000, guid: f18de37f37e26aa4aa4e05b8b3c43f0e, type: 3}
-  - {fileID: 21300000, guid: da084db84e45cec4a8ff39b58111a34a, type: 3}
-  - {fileID: 21300000, guid: 51de175a65262b340a3125c7f255606b, type: 3}
+  stemGenes:
+  - {fileID: 5345432041157224844, guid: dda5da0f8d7ad774c8c4a164dd6f09d9, type: 3}
+  - {fileID: 7046240798006919181, guid: 1bf68751856b4044496c39b599447dbb, type: 3}
+  - {fileID: 6003519519282382648, guid: d013bfdf6ec3a1c408e60397adecfaad, type: 3}
+  - {fileID: 5720386492697880026, guid: 94dd23bfa20999f4fa01d35657b813dc, type: 3}
+  leafGenes:
+  - {fileID: 8260214425798046663, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
+  - {fileID: 3578554969851718130, guid: c3646ec6051ba8441a1872a79e4a3d99, type: 3}
+  flowerGenes:
+  - {fileID: 2618067286017663113, guid: 56bd266428ed95549b72053d7de79c4c, type: 3}
+  - {fileID: 7763961117180706412, guid: 728a24f96a3788a4dbdadd924af7f962, type: 3}
+  - {fileID: 8918175228081939357, guid: 198fad8c53b174642830a64449ae8aca, type: 3}
 --- !u!4 &1565838367
 Transform:
   m_ObjectHideFlags: 0

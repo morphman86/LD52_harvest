@@ -2,37 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-/**
-*   A class to hold all prefabs, sprites and configurations for the game
-*/
-public class config : MonoBehaviour
+public class Config : MonoBehaviour
 {
     // list of all available stem sprites, assignable in editor
     [SerializeField]
-    private List<Sprite> stemSprites;
+    private List<Gene> stemGenes;
     // list of all available leaf sprites, assignable in editor
     [SerializeField]
-    private List<Sprite> leafSprites;
+    private List<Gene> leafGenes;
     // list of all available flower sprites, assignable in editor
     [SerializeField]
-    private List<Sprite> flowerSprites;
+    private List<Gene> flowerGenes;
     
     // method to get a random sprite from the stem sprites list
-    public Sprite getRandomStemSprite()
+    public Gene getRandomStemGene()
     {
-        return stemSprites[Random.Range(0, stemSprites.Count)];
+        return stemGenes[Random.Range(0, stemGenes.Count)];
     }
 
     // method to get a random sprite from the leaf sprites list
-    public Sprite getRandomLeafSprite()
+    public Gene getRandomLeafGene()
     {
-        return leafSprites[Random.Range(0, leafSprites.Count)];
+        return leafGenes[Random.Range(0, leafGenes.Count)];
     }
 
     // method to get a random sprite from the flower sprites list
-    public Sprite getRandomFlowerSprite()
+    public Gene getRandomFlowerGene()
     {
-        return flowerSprites[Random.Range(0, flowerSprites.Count)];
+        return flowerGenes[Random.Range(0, flowerGenes.Count)];
+    }
+
+    /**
+    * methods to get the lists of sprites from each type
+    */
+    public List<Gene> getStemGenes()
+    {
+        return stemGenes;
+    }
+
+    public List<Gene> getLeafGenes()
+    {
+        return leafGenes;
+    }
+
+    public List<Gene> getFlowerGenes()
+    {
+        return flowerGenes;
     }
 }

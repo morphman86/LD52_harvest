@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class plant : MonoBehaviour
+public class Plant : MonoBehaviour
 {
     // set up plant genes, two for stem, two for leaf and one for flower
-    private Sprite lowerStemGene;
-    private Sprite upperStemGene;
-    private Sprite leftLeafGene;
-    private Sprite rightLeafGene;
-    private Sprite flowerGene;
+    private Gene lowerStemGene;
+    private Gene upperStemGene;
+    private Gene leftLeafGene;
+    private Gene rightLeafGene;
+    private Gene flowerGene;
     // get the child game objects from this game object
     private GameObject lowerStem;
     private GameObject upperStem;
@@ -21,7 +21,7 @@ public class plant : MonoBehaviour
     void Start()
     {
         // get the config class from the scene
-        config config = GameObject.Find("game").GetComponent<config>();
+        Config config = GameObject.Find("game").GetComponent<Config>();
 
         // get child game objects by name and assign the sprites
         lowerStem = transform.Find("stem_lower").gameObject;
@@ -31,17 +31,17 @@ public class plant : MonoBehaviour
         flower = transform.Find("flower").gameObject;
 
         // assign random sprites from the config class
-        lowerStemGene = config.getRandomStemSprite();
+        lowerStemGene = config.getRandomStemGene();
         upperStemGene = lowerStemGene;
-        leftLeafGene = config.getRandomLeafSprite();
+        leftLeafGene = config.getRandomLeafGene();
         rightLeafGene = leftLeafGene;
-        flowerGene = config.getRandomFlowerSprite();
+        flowerGene = config.getRandomFlowerGene();
         
-        lowerStem.GetComponent<SpriteRenderer>().sprite = lowerStemGene;
-        upperStem.GetComponent<SpriteRenderer>().sprite = upperStemGene;
-        leftLeaf.GetComponent<SpriteRenderer>().sprite = leftLeafGene;
-        rightLeaf.GetComponent<SpriteRenderer>().sprite = rightLeafGene;
-        flower.GetComponent<SpriteRenderer>().sprite = flowerGene;
+        lowerStem.GetComponent<SpriteRenderer>().sprite = lowerStemGene.getSprite();
+        upperStem.GetComponent<SpriteRenderer>().sprite = upperStemGene.getSprite();
+        leftLeaf.GetComponent<SpriteRenderer>().sprite = leftLeafGene.getSprite();
+        rightLeaf.GetComponent<SpriteRenderer>().sprite = rightLeafGene.getSprite();
+        flower.GetComponent<SpriteRenderer>().sprite = flowerGene.getSprite();
     }
 
 }
