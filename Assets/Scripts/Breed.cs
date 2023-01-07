@@ -12,11 +12,11 @@ public class Breed : MonoBehaviour
     private GameObject breedButton;
     // parent plants
     [SerializeField]
+    private GameObject parent1GridSlot;
+    [SerializeField]
+    private GameObject parent2GridSlot;
     private GameObject parent1;
-    [SerializeField]
     private GameObject parent2;
-    [SerializeField]
-    private GameObject prefab;
 
     // add button listener
     void Start()
@@ -26,6 +26,51 @@ public class Breed : MonoBehaviour
 
     // press button to breed
     public void breed(){
+        // get prefab from config
+        GameObject plantPrefab = GameObject.Find("game").GetComponent<Config>().plantPrefab;
+        // get all the grid slots from config
+        GameObject[] gridSlots = GameObject.Find("game").GetComponent<Config>().gridSlots;
+        // loop through the grid slots and find the first empty one
+        GameObject emptyGridSlot = null;
+        foreach(GameObject gridSlot in gridSlots){
+            // if the grid slot collider does not contain a plant, it is empty
+            if (Physics2D.OverlapPoint(gridSlot.transform.position).tag != "plant"){
+                emptyGridSlot = gridSlot;
+                break;
+            }
+        }
+        // if no empty grid slots, do nothing
+        if (emptyGridSlot == null){
+            Debug.Log("No empty grid slots");
+            return;
+        }
+
+        // assign the GameObject of the Collider2D inside of each parent grid slot to the parent variables
+        Collider2D[] parent1Objects = Physics2D.OverlapPointAll(parent1GridSlot.transform.position);
+        Collider2D[] parent2Objects = Physics2D.OverlapPointAll(parent2GridSlot.transform.position);
+        foreach (Collider2D parent1Object in parent1Objects)
+        {
+            if (parent1Object.tag == "plant")
+            {
+                parent1 = parent1Object.gameObject;
+                break;
+            }
+        }
+        foreach (Collider2D parent2Object in parent2Objects)
+        {
+            if (parent2Object.tag == "plant")
+            {
+                parent2 = parent2Object.gameObject;
+                break;
+            }
+        }
+        // if not ready to breed, do nothing
+        if (!(parent1 != null && parent2 != null))
+        {
+            Debug.Log("Not ready to breed");
+            return;
+        }
+
         // get the config class from the scene
         Config config = GameObject.Find("game").GetComponent<Config>();
         // get the plant class from the parent plants
@@ -43,7 +88,7 @@ public class Breed : MonoBehaviour
         Gene flowerGene1 = plant1.getFlowerGene();
         Gene flowerGene2 = plant2.getFlowerGene();
         // create a new plant
-        GameObject newPlant = Instantiate(prefab) as GameObject;
+        GameObject newPlant = Instantiate(plantPrefab) as GameObject;
         // get the plant class from the new plant
         Plant newPlantClass = newPlant.GetComponent<Plant>();
         // set the genes of the new plant
@@ -54,7 +99,10 @@ public class Breed : MonoBehaviour
         newPlantClass.setFlowerGene(getRandomGene(flowerGene1, flowerGene2));
         
         // set the position of the new plant
-        newPlant.transform.position = new Vector3(0, 0, 0);
+        newPlant.transform.position = emptyGridSlot.transform.position;
+
+        parent1 = null;
+        parent2 = null;
     }
 
     // get random gene from two available

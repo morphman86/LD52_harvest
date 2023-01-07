@@ -13,6 +13,9 @@ public class Config : MonoBehaviour
     // list of all available flower sprites, assignable in editor
     [SerializeField]
     private List<Gene> flowerGenes;
+
+    public GameObject[] gridSlots;
+    public GameObject plantPrefab;
     
     // method to get a random sprite from the stem sprites list
     public Gene getRandomStemGene()

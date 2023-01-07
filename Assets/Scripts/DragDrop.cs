@@ -22,21 +22,25 @@ public class DragDrop : MonoBehaviour
         {
             try
             {
-                draggableObject = Physics2D.OverlapPoint(mousePos).gameObject;
+                Collider2D[] foundObjects = Physics2D.OverlapPointAll(mousePos);
+                foreach(Collider2D foundObject in foundObjects){
+                    if(foundObject.tag == "plant"){
+                        draggableObject = foundObject.gameObject;
+                        break;
+                    }
+                }
+                if(draggableObject == null){
+                    return;
+                }
             }
             catch (System.Exception)
             {
                 return;
             }
             Debug.Log("Clicked on " + draggableObject.name + " with tag" + draggableObject.tag);
-            if(draggableObject.tag == "plant") canMove = true;
-            // canMove = draggableObject.GetComponent<Collider>() == Physics2D.OverlapPoint(mousePos);
-            if (canMove)
-            {
-                this.startPos = mousePos;
-                Debug.Log("Can move " + draggableObject.name);
-                this.dragging = true;
-            }
+            this.startPos = mousePos;
+            Debug.Log("Can move " + draggableObject.name);
+            this.dragging = true;
         }
         if (this.dragging)
         {
@@ -50,18 +54,31 @@ public class DragDrop : MonoBehaviour
                 {
                     if (collider.tag == "grid")
                     {
-                        Debug.Log("Snapping " + draggableObject.name +" to grid at " + collider.transform.position);
-                        // If it is, snap to grid
-                        draggableObject.transform.position = collider.transform.position;
-                        snap = true;
+                        Collider2D[] contents = Physics2D.OverlapPointAll(collider.transform.position);
+                        bool occupied = false;
+                        foreach (Collider2D content in contents)
+                        {
+                            if (content.gameObject != draggableObject && content.tag == "plant")
+                            {
+                                Debug.Log("Cannot snap " + draggableObject.name + " to " + collider.name + " because it is occupied by " + content.name);
+                                occupied = true;
+                                break;
+                            }
+                        }
+                        if (!occupied){
+                            Debug.Log("Snapping " + draggableObject.name +" to grid at " + collider.transform.position);
+                            // If it is, snap to grid
+                            draggableObject.transform.position = collider.transform.position;
+                            snap = true;
+                        }
                     }
                 }
                 if(!snap){
                     Debug.Log("Snapping " + draggableObject.name +" to start position at " + startPos);
                     draggableObject.transform.position = this.startPos;
                 }
-                canMove = false;
                 dragging = false;
+                draggableObject = null;
             }
         }
     }
