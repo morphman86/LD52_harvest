@@ -178,7 +178,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: plant2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2668b48bc90290649bc705b6686e4961, type: 3}
 --- !u!1 &17058128 stripped
 GameObject:
@@ -705,6 +706,7 @@ GameObject:
   - component: {fileID: 1565838367}
   - component: {fileID: 1565838366}
   - component: {fileID: 1565838368}
+  - component: {fileID: 1565838369}
   m_Layer: 0
   m_Name: game
   m_TagString: Untagged
@@ -767,6 +769,21 @@ MonoBehaviour:
   parent1: {fileID: 2272836548806148499}
   parent2: {fileID: 17058128}
   prefab: {fileID: 5482954440104434233, guid: 2668b48bc90290649bc705b6686e4961, type: 3}
+--- !u!114 &1565838369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565838365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0fb0274f7278a4f9e030e8ada7956a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
+  dragging: 0
+  startPos: {x: 0, y: 0}
 --- !u!1 &2121139506
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +797,7 @@ GameObject:
   - component: {fileID: 2121139508}
   m_Layer: 0
   m_Name: GridSquare
-  m_TagString: Untagged
+  m_TagString: grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,5 +955,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: plant1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2668b48bc90290649bc705b6686e4961, type: 3}
