@@ -60,7 +60,7 @@ public class DragDrop : MonoBehaviour
                                 Destroy(draggableObject);
                             }
                             // If it is, snap to grid
-                            draggableObject.transform.position = collider.transform.position;
+                            draggableObject.transform.position = collider.transform.position - new Vector3(0, 0.25f, 0);
                             snap = true;
                         }
                     }

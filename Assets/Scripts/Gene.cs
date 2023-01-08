@@ -42,7 +42,6 @@ public class Gene : MonoBehaviour
     //get random gene of same type as input gene
     public static Gene getRandomGene(Gene gene)
     {
-        Debug.Log("Mutating gene: " + gene.getName());
         //get config instance
         Config config = GameObject.Find("game").GetComponent<Config>();
         Gene randomGene = null;
@@ -61,7 +60,6 @@ public class Gene : MonoBehaviour
                     break;
             }
         }
-        Debug.Log("Old gene type: " + gene.getGeneType() + " New gene type: " + randomGene.getGeneType());
         return randomGene;
     }
 }

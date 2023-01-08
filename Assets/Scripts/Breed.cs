@@ -41,7 +41,7 @@ public class Breed : MonoBehaviour
         }
         // if no empty grid slots, do nothing
         if (emptyGridSlot == null){
-            Debug.Log("No empty grid slots");
+            // Debug.Log("No empty grid slots");
             return;
         }
 
@@ -67,7 +67,7 @@ public class Breed : MonoBehaviour
         // if not ready to breed, do nothing
         if (!(parent1 != null && parent2 != null))
         {
-            Debug.Log("Not ready to breed");
+            // Debug.Log("Not ready to breed");
             return;
         }
 

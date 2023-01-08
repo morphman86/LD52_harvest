@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
             // get the grid slot at that index
             GameObject slot = gridSlots[i];
             // create a new plant and place at the centre of the grid slot
-            Instantiate(plantPrefab, slot.transform.position, Quaternion.identity);
+            Instantiate(plantPrefab, slot.transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
         }
     }
 
