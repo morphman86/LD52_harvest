@@ -68,6 +68,13 @@ public class DragDrop : MonoBehaviour
                             soundHandler.PlaySound("action");
                             draggableObject.transform.position = collider.transform.position - new Vector3(0, 0.25f, 0);
                             snap = true;
+                        } else {
+                            soundHandler.PlaySound("action");
+                            //swap places with the plant in the grid slot
+                            GameObject plantInGridSlot = gridSlot.GetPlant(draggableObject.GetComponent<Collider2D>());
+                            plantInGridSlot.transform.position = this.startPos;
+                            draggableObject.transform.position = collider.transform.position - new Vector3(0, 0.25f, 0);
+                            snap = true;
                         }
                     }
                 }

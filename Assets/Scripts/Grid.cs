@@ -74,4 +74,19 @@ public class Grid : MonoBehaviour
     {
         return gridType;
     }
+
+    // method to get the plant in the grid slot
+    public GameObject GetPlant(Collider2D dragged = null)
+    {
+        Collider2D draggedCollider = dragged != null ? dragged : new Collider2D();
+        Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider != draggedCollider && collider.tag == "plant")
+            {
+                return collider.gameObject;
+            }
+        }
+        return null;
+    }
 }
