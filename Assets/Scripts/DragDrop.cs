@@ -8,8 +8,12 @@ public class DragDrop : MonoBehaviour
     public bool dragging;
     GameObject draggableObject;
     public Vector2 startPos;
+    private SoundHandler soundHandler;
+
+
     void Start()
     {
+        soundHandler = GameObject.Find("game").GetComponent<SoundHandler>();
         this.canMove = false;
         this.dragging = false;
     }
@@ -57,15 +61,18 @@ public class DragDrop : MonoBehaviour
                             // If the gridslot is of type sell, destroy the plant
                             if (gridSlot.GetGridType() == Grid.GridType.Sell)
                             {
+                                soundHandler.PlaySound("error");
                                 Destroy(draggableObject);
                             }
                             // If it is, snap to grid
+                            soundHandler.PlaySound("action");
                             draggableObject.transform.position = collider.transform.position - new Vector3(0, 0.25f, 0);
                             snap = true;
                         }
                     }
                 }
                 if(!snap){
+                    soundHandler.PlaySound("action");
                     draggableObject.transform.position = this.startPos;
                 }
                 dragging = false;

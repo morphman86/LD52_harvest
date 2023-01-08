@@ -17,11 +17,13 @@ public class Breed : MonoBehaviour
     private GameObject parent2GridSlot;
     private GameObject parent1;
     private GameObject parent2;
+    private SoundHandler soundHandler;
 
     // add button listener
     void Start()
     {
         breedButton.GetComponent<Button>().onClick.AddListener(breed);
+        soundHandler = GameObject.Find("game").GetComponent<SoundHandler>();
     }
 
     // press button to breed
@@ -42,6 +44,7 @@ public class Breed : MonoBehaviour
         // if no empty grid slots, do nothing
         if (emptyGridSlot == null){
             // Debug.Log("No empty grid slots");
+            soundHandler.PlaySound("error");
             return;
         }
 
@@ -68,6 +71,7 @@ public class Breed : MonoBehaviour
         if (!(parent1 != null && parent2 != null))
         {
             // Debug.Log("Not ready to breed");
+            soundHandler.PlaySound("error");
             return;
         }
 
@@ -103,6 +107,9 @@ public class Breed : MonoBehaviour
 
         parent1 = null;
         parent2 = null;
+
+        // play sound
+        soundHandler.PlaySound("success");
     }
 
     // get random gene from two available
