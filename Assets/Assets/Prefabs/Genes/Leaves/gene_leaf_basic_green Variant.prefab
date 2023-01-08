@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2716153436262868774, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
       propertyPath: m_Name
-      value: gene_leaf_basic_green
+      value: gene_leaf_basic_green Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5175467626444041573, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
       propertyPath: m_RootOrder
@@ -58,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 8260214425798046663, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
       propertyPath: geneName
       value: Leaf Basic Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260214425798046663, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
+      propertyPath: geneType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8260214425798046663, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
       propertyPath: geneSprite

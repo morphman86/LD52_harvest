@@ -16,6 +16,10 @@ PrefabInstance:
       value: Leaf Basic Blue
       objectReference: {fileID: 0}
     - target: {fileID: 6003519519282382648, guid: d013bfdf6ec3a1c408e60397adecfaad, type: 3}
+      propertyPath: geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003519519282382648, guid: d013bfdf6ec3a1c408e60397adecfaad, type: 3}
       propertyPath: geneSprite
       value: 
       objectReference: {fileID: 21300000, guid: 24a668c1414e97e4c8a444512aa8fe5d, type: 3}

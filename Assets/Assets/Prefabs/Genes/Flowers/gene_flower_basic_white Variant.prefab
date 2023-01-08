@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4372075950328277645, guid: 728a24f96a3788a4dbdadd924af7f962, type: 3}
       propertyPath: m_Name
-      value: gene_flower_basic_white
+      value: gene_flower_basic_white Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6831952542482882766, guid: 728a24f96a3788a4dbdadd924af7f962, type: 3}
       propertyPath: m_RootOrder

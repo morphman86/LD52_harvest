@@ -34,7 +34,7 @@ public class Breed : MonoBehaviour
         GameObject emptyGridSlot = null;
         foreach(GameObject gridSlot in gridSlots){
             // if the grid slot collider does not contain a plant, it is empty
-            if (Physics2D.OverlapPoint(gridSlot.transform.position).tag != "plant"){
+            if (gridSlot.GetComponent<Grid>().IsEmpty()){
                 emptyGridSlot = gridSlot;
                 break;
             }
@@ -112,8 +112,10 @@ public class Breed : MonoBehaviour
         // compare the two genes and cast to int
         int compare = (int)gene1.compareStrength(gene2);
         // return gene based on roll minus compare
-        if(random - compare < 50){
+        if(random - compare < 49){
             return gene1;
+        } else if(random - compare < 51){
+            return Gene.getRandomGene(gene1);
         } else {
             return gene2;
         }

@@ -56,6 +56,10 @@ PrefabInstance:
       value: Flower Basic White
       objectReference: {fileID: 0}
     - target: {fileID: 2618067286017663113, guid: 56bd266428ed95549b72053d7de79c4c, type: 3}
+      propertyPath: geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618067286017663113, guid: 56bd266428ed95549b72053d7de79c4c, type: 3}
       propertyPath: geneSprite
       value: 
       objectReference: {fileID: 21300000, guid: 51de175a65262b340a3125c7f255606b, type: 3}

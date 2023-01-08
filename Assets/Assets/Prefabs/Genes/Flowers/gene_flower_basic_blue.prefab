@@ -60,6 +60,10 @@ PrefabInstance:
       value: Flower Basic Red
       objectReference: {fileID: 0}
     - target: {fileID: 8260214425798046663, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
+      propertyPath: geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260214425798046663, guid: 08adf2213e196b142ab1d633c8ff2b08, type: 3}
       propertyPath: geneSprite
       value: 
       objectReference: {fileID: 21300000, guid: da084db84e45cec4a8ff39b58111a34a, type: 3}

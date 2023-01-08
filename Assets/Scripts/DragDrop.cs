@@ -37,9 +37,7 @@ public class DragDrop : MonoBehaviour
             {
                 return;
             }
-            Debug.Log("Clicked on " + draggableObject.name + " with tag" + draggableObject.tag);
             this.startPos = mousePos;
-            Debug.Log("Can move " + draggableObject.name);
             this.dragging = true;
         }
         if (this.dragging)
@@ -54,19 +52,13 @@ public class DragDrop : MonoBehaviour
                 {
                     if (collider.tag == "grid")
                     {
-                        Collider2D[] contents = Physics2D.OverlapPointAll(collider.transform.position);
-                        bool occupied = false;
-                        foreach (Collider2D content in contents)
-                        {
-                            if (content.gameObject != draggableObject && content.tag == "plant")
+                        Grid gridSlot = collider.GetComponent<Grid>();
+                        if (gridSlot.IsEmpty(draggableObject.GetComponent<Collider2D>())) {
+                            // If the gridslot is of type sell, destroy the plant
+                            if (gridSlot.GetGridType() == Grid.GridType.Sell)
                             {
-                                Debug.Log("Cannot snap " + draggableObject.name + " to " + collider.name + " because it is occupied by " + content.name);
-                                occupied = true;
-                                break;
+                                Destroy(draggableObject);
                             }
-                        }
-                        if (!occupied){
-                            Debug.Log("Snapping " + draggableObject.name +" to grid at " + collider.transform.position);
                             // If it is, snap to grid
                             draggableObject.transform.position = collider.transform.position;
                             snap = true;
@@ -74,7 +66,6 @@ public class DragDrop : MonoBehaviour
                     }
                 }
                 if(!snap){
-                    Debug.Log("Snapping " + draggableObject.name +" to start position at " + startPos);
                     draggableObject.transform.position = this.startPos;
                 }
                 dragging = false;
